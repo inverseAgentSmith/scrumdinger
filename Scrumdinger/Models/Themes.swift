@@ -28,8 +28,8 @@ enum Theme: String {
     
     var accentColour: Color {
         switch self {
-        case .bubblegum, .buttercup, .lavender, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .yellow: return .black
-        case .indigo, .magenta, .navy, .oxblood, .purple, .teal: return .white
+        case .bubblegum, .buttercup, .lavender, .magenta, .orange, .periwinkle, .poppy, .seafoam, .sky, .tan, .yellow: return .black
+        case .indigo, .navy, .oxblood, .purple, .teal: return .white
         }
     }
 
