@@ -8,13 +8,20 @@
 import Foundation
 import SwiftUI
 
-struct DailyScrum {
-    
+struct DailyScrum: Identifiable {
+    let id: UUID
     var title: String
     var attendees: [String]
     var meetingLengthInMinutes: Int
     var theme: Theme
     
+    init(id: UUID = UUID(), title: String, attendees: [String], meetingLengthInMinutes: Int, theme: Theme) {
+        self.id = id
+        self.title = title
+        self.attendees = attendees
+        self.meetingLengthInMinutes = meetingLengthInMinutes
+        self.theme = theme
+    }
 }
 
 extension DailyScrum {
