@@ -23,6 +23,7 @@ struct ScrumsView: View {
             Button(action: {}) {
                 Image(systemName: "plus")
             }
+            .accessibilityLabel("Add new scrum")
         }
     }
 }
