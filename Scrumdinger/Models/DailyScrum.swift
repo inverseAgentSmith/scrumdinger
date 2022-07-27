@@ -11,16 +11,28 @@ import SwiftUI
 struct DailyScrum: Identifiable {
     let id: UUID
     var title: String
-    var attendees: [String]
+    var attendees: [Attendee] // initialize meeting attendees as an array
     var meetingLengthInMinutes: Int
     var theme: Theme
     
     init(id: UUID = UUID(), title: String, attendees: [String], meetingLengthInMinutes: Int, theme: Theme) {
         self.id = id
         self.title = title
-        self.attendees = attendees
+        self.attendees = attendees.map { Attendee(name: $0)} // map(_:) creates a new collection by iterating over and applying a transformation to each element in an existing collection.
         self.meetingLengthInMinutes = meetingLengthInMinutes
         self.theme = theme
+    }
+}
+
+extension DailyScrum {
+    struct Attendee: Identifiable {
+        let id: UUID
+        var name: String
+        
+        init(id: UUID = UUID(), name: String) {
+            self.id = id
+            self.name = name
+        }
     }
 }
 
