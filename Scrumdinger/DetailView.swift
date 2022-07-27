@@ -22,6 +22,19 @@ struct DetailView: View {
                     Spacer()
                     Text("\(scrum.meetingLengthInMinutes) minutes")
                 }
+                .accessibilityElement(children: .combine)
+                // voiceover reads the Label and Text as one statement - "Length, 10 minutes"
+                
+                HStack {
+                    Label("Theme", systemImage: "paintpalette")
+                    Spacer()
+                    Text(scrum.theme.name)
+                        .padding(5)
+                        .background(scrum.theme.mainColour)
+                        .foregroundColor(scrum.theme.accentColour)
+                        .cornerRadius(5)
+                }
+                .accessibilityElement(children: .combine)
             }
         }
     }
