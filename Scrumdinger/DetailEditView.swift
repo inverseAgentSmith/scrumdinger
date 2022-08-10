@@ -21,8 +21,10 @@ struct DetailEditView: View {
                     Slider(value: $data.meetingLengthInMinutes, in: 5...30, step: 1) {
                         Text("Length")
                     }
+                    .accessibilityValue("\(Int(data.meetingLengthInMinutes)) minutes")
                     Spacer()
                     Text("\(Int(data.meetingLengthInMinutes)) minutes")
+                        .accessibilityHidden(true)
                 }
             }
             Section(header: Text("Attendees")) {
@@ -43,6 +45,7 @@ struct DetailEditView: View {
                         }
                     }) {
                         Image(systemName: "plus.circle.fill")
+                            .accessibilityLabel("Add attendee")
                     }
                     .disabled(newAttendeeName.isEmpty)
                 }
